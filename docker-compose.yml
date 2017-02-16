@@ -4,17 +4,11 @@ services:
 
   blogit:
     build: blogit/
+    environment:
+      - VIRTUAL_HOST=elixir-lang.bg,blog.elixir-lang.bg,elixir.app.astea.net
     expose:
       - "4000"
     restart: unless-stopped
-  
-  proxy:
-    build: proxy/
-    ports:
-      - "80:80"
-    restart: unless-stopped
     labels:
-      maintainer: 'maintainer here'
-      description: 'description here'
-    depends_on:
-      - blogit
+      maintainer: 'meddle <n.tzvetinov@gmail.com>'
+      description: 'Elixir course'  
